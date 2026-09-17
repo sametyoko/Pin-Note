@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>演習 編集</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 40px;
+      }
+
+      div {
+        margin-bottom: 12px;
+      }
+
+      label {
+        display: inline-block;
+        width: 140px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>ゲーム編集</h1>
+
+    <!-- Controllerから受け取った item の値をフォームに表示します。 -->
+    <form action="/enshu/update" method="post">
+      <input type="hidden" name="id" th:value="${item.id}" />
+
+      <div>
+        <label>ID</label>
+        <span th:text="${item.id}"></span>
+      </div>
+      <div>
+        <label>タイトル</label>
+        <input type="text" name="title" th:value="${item.title}" />
+      </div>
+      <div>
+        <label>ジャンル</label>
+        <input type="text" name="genre" th:value="${item.genre}" />
+      </div>
+      <div>
+        <label>プラットフォーム</label>
+        <input type="text" name="platform" th:value="${item.platform}" />
+      </div>
+      <div>
+        <label>ステータス</label>
+        <input type="text" name="status" th:value="${item.status}" />
+      </div>
+
+      <button>保存</button>
+    </form>
+
+    <p>
+      <a href="/enshu/index">一覧へ戻る</a>
+    </p>
+  </body>
+</html>

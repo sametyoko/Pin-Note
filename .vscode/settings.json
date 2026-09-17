@@ -1,0 +1,21 @@
+{
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.prettierPath": "./frontend/node_modules/prettier",
+  "prettier.documentSelectors": ["**/*.java", "**/*.xml"],
+  "[java]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[sql]": {
+    "editor.formatOnSave": false
+  }
+}

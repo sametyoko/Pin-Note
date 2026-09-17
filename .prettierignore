@@ -1,0 +1,24 @@
+# Dependencies and generated output
+**/node_modules/**
+**/node_modules.nosync/**
+target/**
+build/**
+dist/**
+src/main/resources/static/points/**
+**/*.tsbuildinfo
+**/package-lock.json
+.local/**
+.sites-runtime/**
+.git/**
+# Immutable applied Flyway migrations: editing these breaks checksum validation.
+src/main/resources/db/migration/**
+# Generated tooling and binary assets
+.mvn/**
+.github/modernize/**
+mvnw
+mvnw.cmd
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.jar
+**/.DS_Store

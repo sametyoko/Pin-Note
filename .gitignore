@@ -1,0 +1,48 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Pin Note local runtime and generated frontend
+frontend/node_modules/
+frontend/*.tsbuildinfo
+src/main/resources/static/points/
+.local/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.sites-runtime/
+frontend/node_modules.nosync/

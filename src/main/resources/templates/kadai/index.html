@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>課題</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 40px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #999;
+        padding: 8px 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #eeeeee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>ゲームリスト</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>ジャンル</th>
+          <th>プラットフォーム</th>
+          <th>ステータス</th>
+          <th>登録日時</th>
+          <th>更新日時</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="item : ${items}">
+          <td th:text="${item.id}"></td>
+          <td th:text="${item.title}"></td>
+          <td th:text="${item.genre}"></td>
+          <td th:text="${item.platform}"></td>
+          <td th:text="${item.status}"></td>
+          <td th:text="${item.createdAt}"></td>
+          <td th:text="${item.updatedAt}"></td>
+          <td>
+            <a th:href="@{/kadai/edit/{id}(id=${item.id})}">編集</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
