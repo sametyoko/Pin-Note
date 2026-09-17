@@ -43,7 +43,6 @@ node scripts/backend.mjs
 ```
 
 画面：http://127.0.0.1:8080/points/
-既存の授業画面は `/`、`/enshu/index`、`/kadai/index` に残しています。
 
 Viteの出力先は `src/main/resources/static/points` です。生成物はGit管理しません。Maven単体でフロントはビルドされないので、パッケージ作成前に `npm run build` を実行してください。
 
