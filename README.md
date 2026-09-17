@@ -5,7 +5,7 @@
 ## 構成
 
 - 画面：React / TypeScript / Vite / MUI Icons / Leaflet
-- サーバー：Java 17対応ソース / Spring Boot / JDBC（ポイント）・JPA（既存の授業画面）
+- サーバー：Java 17対応ソース / Spring Boot / JDBC
 - DB：PostgreSQL。Flywayでテーブルを作成し、起動時に消さない。
 - 地図：OpenStreetMap。市区町村補完：Nominatim（任意、失敗時は日時のみ）。
 
@@ -13,37 +13,37 @@
 
 Node.js 22.12以上、JDK 17以上、PostgreSQLとpg_configが必要です。
 
+プロジェクトのフォルダーで、初回のみ依存ライブラリをインストールします。
+
+```sh
+npm --prefix frontend ci
+```
+
+続けて、DB起動・画面のビルド・アプリ起動を順番に実行します。
+
 ```sh
 node scripts/local-db.mjs
-node scripts/backend.mjs
+npm --prefix frontend run build
+node scripts/backend.mjs spring-boot:run -B -ntp
 ```
 
-別のターミナルで：
+起動後は [Pin Noteを開く](http://127.0.0.1:8080/points/) にアクセスしてください。
+利用者向けURLは **http://127.0.0.1:8080/points/** です。起動中はターミナルを開いたままにしてください。
 
-```sh
-cd frontend
-npm install
-npm run dev
-```
-
-画面：http://127.0.0.1:5173/points/
+画面の変更がなければ、次回起動時のビルドは省略できます。
 
 DBは `~/Library/Application Support/PinNote-db-koushin/postgres` に永続保存します。iCloud同期対象のDocumentsにはDBを置きません。接続パスワードは同フォルダーのdatabase.jsonへ権限600で保存し、ソースには含めません。別の保存先は `PIN_NOTE_DATA_DIR` で指定できます。`.local/postgres` は初回セットアップ調査時の未使用領域です。
 
 DB停止は `node scripts/local-db.mjs stop`。停止しても記録は残ります。再開は同じ起動コマンドです。データフォルダーそのものを削除すると記録を失うので、削除しないでください。
 
-## 提出用：Spring Bootから画面も配信
+## 提出用：アプリのパッケージ作成
 
 ```sh
-cd frontend
-npm run build
-cd ..
+npm --prefix frontend run build
 node scripts/backend.mjs package -DskipTests
-node scripts/backend.mjs
 ```
 
-画面：http://127.0.0.1:8080/points/
-既存の授業画面は `/`、`/enshu/index`、`/kadai/index` に残しています。
+起動とアクセス先は上記の手順と同じです。
 
 Viteの出力先は `src/main/resources/static/points` です。生成物はGit管理しません。Maven単体でフロントはビルドされないので、パッケージ作成前に `npm run build` を実行してください。
 
